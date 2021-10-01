@@ -50,7 +50,7 @@ def VoiceCommand():
     
     try:       
         print("Recognising...")
-        query = r.recognize_google(audio,language = 'en-in')
+        query = r.recognize_google(audio,language = 'en')
         
     except Exception as e:
         print("Error :  " + str(e))
@@ -63,8 +63,14 @@ def VoiceCommand():
     
     return query
 
-greetings()
-VoiceCommand()
+def sendEmail(to,content):
+    server = smtplib.SMTP("smtp@gmail.com",587)
+    server.ehlo()
+    server.starttls()
+    server.login("elbaidoury.user@gmail","******")
+    server.sendmail("elbaidoury.user@gmail.com",to,content)
+    server.close()
+
 
 if __name__ == "__main__":
     
@@ -88,3 +94,23 @@ if __name__ == "__main__":
             query = query.replace("google","")
             result = wikipedia.summary(query,sentences = 2)
             speak(result)
+        elif "send email" in query:
+            emails = {   
+                "elbaidoury":"elbaidoury.salaheddine@gmail.com",
+                "shop":"elbaidoury.shop@gmail.com",
+                "course":"elbaidoury.course@gmail.com"
+            }
+            
+            try:
+                speak("What should i say !")
+                content = VoiceCommand().lower()
+                print(content)
+                speak("what is the receiver email")
+                to = VoiceCommand().lower()
+                print(to)
+                sendEmail(emails[to],content)
+                speak("email sent successfully to"+emails[to])
+            
+            except Exception as e:
+                print(e)
+                speak("enable to send the mail")
