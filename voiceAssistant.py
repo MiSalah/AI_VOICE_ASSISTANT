@@ -65,3 +65,26 @@ def VoiceCommand():
 
 greetings()
 VoiceCommand()
+
+if __name__ == "__main__":
+    
+    greetings()
+    
+    while True:
+        query = VoiceCommand().lower()
+        print(query)
+        if "hello" in query:
+            saygood()
+        elif "date" in query:
+            saygood()
+            date()
+        elif "offline" in query: 
+            quit()        
+        elif "goodbye" in query:
+            speak("Thank You, See you soon again!")
+            quit()
+        elif "google" in query:
+            speak("searching ...")
+            query = query.replace("google","")
+            result = wikipedia.summary(query,sentences = 2)
+            speak(result)
