@@ -2,6 +2,8 @@ import pyttsx3
 import datetime
 import speech_recognition as sr
 import pyaudio
+import wikipedia
+import smtplib
 
 engine = pyttsx3.init()
 voices = engine.getProperty("voices")
