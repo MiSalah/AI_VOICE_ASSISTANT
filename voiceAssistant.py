@@ -76,9 +76,13 @@ def sendEmail(to,content):
 
 if __name__ == "__main__":
     
-    greetings()
+    loop = False
     
-    while True:
+    if "nora" in VoiceCommand().lower():
+        greetings()
+        loop = True
+    
+    while loop:
         query = VoiceCommand().lower()
         print(query)
         if "hello" in query:
