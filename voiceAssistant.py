@@ -1,8 +1,8 @@
-import pyttsx3 
+import pyttsx3 #pip install pyttsx3
 import datetime
-import speech_recognition as sr
-import pyaudio
-import wikipedia
+import speech_recognition as sr #pip install SpeechRecognition
+import pyaudio #pip install pipwin; pipwin install pyaudio
+import wikipedia #pip install wikipedia
 import smtplib
 
 engine = pyttsx3.init()
