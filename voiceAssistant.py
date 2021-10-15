@@ -4,6 +4,7 @@ import speech_recognition as sr #pip install SpeechRecognition
 import pyaudio #pip install pipwin; pipwin install pyaudio
 import wikipedia #pip install wikipedia
 import smtplib
+import webbrowser as wb
 
 engine = pyttsx3.init()
 voices = engine.getProperty("voices")
@@ -120,3 +121,9 @@ if __name__ == "__main__":
             except Exception as e:
                 print(e)
                 speak("enable to send the mail")
+         
+        elif "chrome" in query:
+            speak("what should i search");
+            search = VoiceCommand().lower()
+            wb.get("C:\Program Files (x86)\BraveSoftware\Update\braveUpdate.exe").open_new_tab(search + ".com")
+                
