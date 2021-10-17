@@ -119,9 +119,8 @@ if __name__ == "__main__":
                 speak("email sent successfully to"+emails[to])
             
             except Exception as e:
-                print(e)
                 speak("enable to send the mail")
-         
+                print("Exception : "+e)
         elif "chrome" in query:
             speak("what should i search");
             search = VoiceCommand().lower()
