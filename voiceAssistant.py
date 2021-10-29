@@ -41,7 +41,7 @@ def date():
 def greetings():
     speak("Welcome Back Sir")
     date()
-    speak("See you soon")
+    speak("See you soon Sir")
 
 def VoiceCommand():
     r = sr.Recognizer()
